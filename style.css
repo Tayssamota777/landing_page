@@ -1,0 +1,173 @@
+:root {
+    --bg:#0f172a;
+    --card:#1e293b;
+    --primary:#8b5cf6;
+    --secondary:#22c55e;
+    --text:#ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 80px; /* para compensar o header fixo */
+    background: var(--bg);
+    color: var(--text);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+nav a {
+    margin-left: 15px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    transition: 0.3s;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+}
+
+.hero button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* CARDS (container) */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* CARD individual */
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 15px;
+    width: 200px;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-8px)scale(1.02);
+    border-color: var(--primary);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        gap: 10px;
+    }
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
+
+button {
+    background:var(--primary);
+    color: white;
+    border-radius: 8px;
+    transition: 0.3s;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+section {
+    padding: 80px 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: aparecer 0.8s forwards;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.destaque {
+    color: var(--primary);
+}
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+p {
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+h2{
+    margin-bottom: 20px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+}
