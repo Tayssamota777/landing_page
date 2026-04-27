@@ -1,20 +1,22 @@
 // SCROLL ANIMATION
-const elementos = document.querySelectorAll(".animar");
+const elementos = document.querySelectorAll('.animar');
 
 function animarScroll() {
-    const alturaTela = window.innerHeight;
+    const topoTela = window.innerHeight * 0.8;
 
-    elementos.forEach((el) => {
-        const posicao = el.getBoundingClientRect().top;
+    elementos.forEach(elemento => {
+        const elementoTopo = elemento.getBoundingClientRect().top;
 
-        if (posicao < alturaTela - 100) {
-            el.classList.add("ativo");
+        if (elementoTopo < topoTela) {
+            elemento.classList.add('ativo');
         }
     });
 }
 
-window.addEventListener("scroll", animarScroll);
-window.addEventListener("load", animarScroll);
+window.addEventListener('scroll', animarScroll);
+
+// ativa ao carregar a página também
+animarScroll();
 
 // DARK MODE
 const temaBtn = document.getElementById("tema-btn");
@@ -38,25 +40,19 @@ temaBtn.addEventListener("click", () => {
 
 // BUSCAR CEP
 function buscarCEP() {
-    const cep = document.getElementById("cep").value.replace(/\D/g, "");
-
-    if (cep.length !== 8) {
-        document.getElementById("resultado").innerText = "CEP inválido";
-        return;
-    }
+    let cep = document.getElementById("cep").value;
 
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
-        .then(res => res.json())
-        .then(dados => {
-            if (dados.erro) {
-                document.getElementById("resultado").innerText = "CEP não encontrado";
-                return;
-            }
+    .then(res => res.json())
+    .then(dados => {
+        document.getElementById("resultado").innerHTML =
+        `Rua: ${dados.logradouro} <br>
+        Bairro: ${dados.bairro} <br>
+        Cidade: ${dados.localidade}`;
+    })
+    .catch(() => {
+        document.getElementById("resultado").innerText = "Erro ao buscar CEP";
+    });
 
-            document.getElementById("resultado").innerText =
-                `${dados.logradouro}, ${dados.bairro} - ${dados.localidade}/${dados.uf}`;
-        })
-        .catch(() => {
-            document.getElementById("resultado").innerText = "Erro ao buscar CEP";
-        });
 }
+
