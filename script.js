@@ -59,6 +59,4 @@ function buscarCEP() {
         .catch(() => {
             document.getElementById("resultado").innerText = "Erro ao buscar CEP";
         });
-}    return;
-}
 }
