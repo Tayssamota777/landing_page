@@ -2,39 +2,75 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Projeto CEP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto CEP | Kauanny</title>
+
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
 <header>
 <div class="header-container">
-<h2>Kauanny Dev</h2>
+<h2><span class="destaque">Kauanny</span> Dev</h2>
+
 <nav>
-<a href="projetos.html">Voltar</a>
+<a href="index.html">Início</a>
+<a href="projetos.html">Projetos</a>
 </nav>
 </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-<h1>Busca de CEP</h1>
-<p>Projeto utilizando API externa com JavaScript</p>
+<h1>Busca de CEP 📍</h1>
+<p>Projeto utilizando API externa com JavaScript (ViaCEP)</p>
 </section>
 
+<!-- SOBRE -->
+<section class="animar">
+<h2>Sobre o projeto</h2>
+
+<p>
+Este projeto realiza a busca de endereço a partir de um CEP utilizando
+uma API externa. Foi desenvolvido com foco em prática de JavaScript,
+requisições HTTP e manipulação do DOM.
+</p>
+</section>
+
+<!-- TESTE -->
 <section class="animar">
 <h2>Testar o projeto</h2>
 
-<input type="text" id="cep" placeholder="Digite o CEP">
-<button onclick="buscarCEP()">Buscar</button>
+<div class="card" style="max-width: 400px; margin:auto;">
 
-<p id="resultado"></p>
+<input type="text" id="cep" placeholder="Digite o CEP (ex: 01001000)" style="width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:none;">
+
+<button onclick="buscarCEP()" style="width:100%;">Buscar</button>
+
+<p id="resultado" style="margin-top:15px;"></p>
+
+</div>
+
 </section>
 
-<script src="script.js"></script>
+<!-- TECNOLOGIAS -->
+<section class="animar">
+<h2>Tecnologias usadas</h2>
 
-</body>
-</html>
+<div class="cards">
+<div class="card">HTML</div>
+<div class="card">CSS</div>
+<div class="card">JavaScript</div>
+</div>
+
+</section>
+
+<footer>
+<p>&copy; 2026 Kauanny Dev</p>
+</footer>
+
 <script src="script.js"></script>
 
 </body>
