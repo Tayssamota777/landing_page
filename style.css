@@ -128,9 +128,10 @@ body.light {
 
 /* avatar */
 .avatar {
-  width: 120px;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 20px;
   border: 3px solid var(--primary);
 }
 
