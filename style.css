@@ -146,8 +146,10 @@ body.light {
 /* imagem do projeto */
 .projeto-card img {
   width: 100%;
+  height: 180px;
+  object-fit: cover;
   border-radius: 10px;
-  margin-bottom: 10px;
+  transition: 0.3s;
 }
 
 /* botões lado a lado */
@@ -161,9 +163,14 @@ body.light {
 .projeto-card {
   overflow: hidden;
   transition: 0.3s;
+  border-radius: 10px;
 }
 
 .projeto-card:hover {
-  transform: translateY(-10px) scale(1.02);
+  transform: translateY(-8px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.projeto-card:hover img {
+  transform: scale(1.05);
 }
