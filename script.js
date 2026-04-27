@@ -1,3 +1,4 @@
+// SCROLL ANIMATION
 const elementos = document.querySelectorAll(".animar");
 
 function animarScroll() {
@@ -12,13 +13,12 @@ function animarScroll() {
     });
 }
 
-
 window.addEventListener("scroll", animarScroll);
 window.addEventListener("load", animarScroll);
 
+// DARK MODE
 const temaBtn = document.getElementById("tema-btn");
 
-// carregar preferência salva
 if (localStorage.getItem("tema") === "light") {
     document.body.classList.add("light");
     temaBtn.textContent = "☀️";
@@ -36,8 +36,14 @@ temaBtn.addEventListener("click", () => {
     }
 });
 
+// BUSCAR CEP
 function buscarCEP() {
-    const cep = document.getElementById("cep").value;
+    const cep = document.getElementById("cep").value.replace(/\D/g, "");
+
+    if (cep.length !== 8) {
+        document.getElementById("resultado").innerText = "CEP inválido";
+        return;
+    }
 
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
         .then(res => res.json())
@@ -53,8 +59,6 @@ function buscarCEP() {
         .catch(() => {
             document.getElementById("resultado").innerText = "Erro ao buscar CEP";
         });
-        if (cep.length !== 8) {
-    document.getElementById("resultado").innerText = "CEP inválido";
-    return;
+}    return;
 }
 }
